@@ -75,7 +75,6 @@ func (e *emitter) emit(name string) error {
 }
 
 func initialState(e *emitter, rr *runeReader) (lexFn, error) {
-	println("initial")
 	r, sz, err := rr.peekRune()
 	if err != nil {
 		return nil, err
@@ -109,7 +108,6 @@ func initialState(e *emitter, rr *runeReader) (lexFn, error) {
 }
 
 func symbolState(e *emitter, rr *runeReader) (lexFn, error) {
-	println("symbol")
 	r, sz, err := rr.peekRune()
 	if err != nil {
 		return nil, err
@@ -129,7 +127,6 @@ func symbolState(e *emitter, rr *runeReader) (lexFn, error) {
 }
 
 func numberState(e *emitter, rr *runeReader) (lexFn, error) {
-	println("number")
 	r, sz, err := rr.peekRune()
 	if err != nil {
 		return nil, err
@@ -154,7 +151,6 @@ func numberState(e *emitter, rr *runeReader) (lexFn, error) {
 }
 
 func decimalState(e *emitter, rr *runeReader) (lexFn, error) {
-	println("decimal")
 	r, sz, err := rr.peekRune()
 	if err != nil {
 		return nil, err
@@ -171,7 +167,6 @@ func decimalState(e *emitter, rr *runeReader) (lexFn, error) {
 }
 
 func maybeNumberState(e *emitter, rr *runeReader) (lexFn, error) {
-	println("maybe number state")
 	r, sz, err := rr.peekRune()
 	if err != nil {
 		return nil, err
@@ -192,7 +187,6 @@ func maybeNumberState(e *emitter, rr *runeReader) (lexFn, error) {
 }
 
 func quotedStringState(e *emitter, rr *runeReader) (lexFn, error) {
-	println("quoted")
 	r, sz, err := rr.peekRune()
 	if err != nil {
 		return nil, err
@@ -212,7 +206,6 @@ func quotedStringState(e *emitter, rr *runeReader) (lexFn, error) {
 }
 
 func escapeStringState(e *emitter, rr *runeReader) (lexFn, error) {
-	println("escape")
 	r, sz, err := rr.peekRune()
 	if err != nil {
 		return nil, err
@@ -230,7 +223,6 @@ func escapeStringState(e *emitter, rr *runeReader) (lexFn, error) {
 }
 
 func multilineStringState(e *emitter, rr *runeReader) (lexFn, error) {
-	println("multiline")
 	r, sz, err := rr.peekRune()
 	if err != nil {
 		return nil, err
@@ -244,3 +236,4 @@ func multilineStringState(e *emitter, rr *runeReader) (lexFn, error) {
 	e.push(r)
 	return multilineStringState, nil
 }
+
